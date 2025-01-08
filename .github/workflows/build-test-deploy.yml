@@ -1,0 +1,16 @@
+name: build-test-deploy
+on: push
+jobs:
+  build:
+    runs-on: ubunttu-latest
+    steps: 
+      - name: checkout repo
+        uses: actions/checkout@v3
+      - name: use node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18.x'
+      - run: npm install
+      - run: npm run build
+      
+      
